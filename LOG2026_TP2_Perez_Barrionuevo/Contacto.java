@@ -114,5 +114,18 @@ public class Contacto{
             telefono[pos]=caracteristica + "-" + numero;
         }
     }
+    
+    public void listarTelefonos(){
+        boolean hayAlguno = false;              
+        for (int i = 0; i < telefono.length; i++) {
+            if (telefono[i] != null && !telefono[i].trim().isEmpty()) {
+                System.out.println((i + 1) + ") " + telefono[i]);
+                hayAlguno = true;               
+            }
+        }
+        if (!hayAlguno) {                      
+            System.out.println("No existen números de teléfonos en la lista");
+        }
+    }
 }
 
