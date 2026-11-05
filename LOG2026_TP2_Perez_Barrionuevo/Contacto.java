@@ -77,11 +77,13 @@ public class Contacto{
     }
 
     public void agregarTelefono(){
+        //Verificar lugares vacios
         int pos=elementoVacio();
         if(pos==-1){
             System.out.println("No existe mas lugar para agregar numeros telefonicos");
             return;
         }
+        //Validar caracteristica
         Scanner sc = new Scanner(System.in);
         String caracteristica;
         do{
@@ -92,7 +94,7 @@ public class Contacto{
             }
 
         }while(!validarCaracteristica(caracteristica));
-
+        //Validar telefono
         int numero;
         do{
             System.out.println("Ingrese el numero");
@@ -126,6 +128,36 @@ public class Contacto{
         if (!hayAlguno) {                      
             System.out.println("No existen números de teléfonos en la lista");
         }
+    }
+    
+    private boolean hayTelefonos(){
+        for(int i = 0; i < telefono.length; i++){
+            if(telefono[i] != null && !telefono[i].trim().isEmpty()){
+                return true;
+            }
+        }return false;
+    }
+    
+    public void eliminarTelefono(){
+        if(!hayTelefonos()){
+            System.out.println("No existen numeros de telefonos en la lista");
+            return;
+        }
+        
+        listarTelefonos();
+    
+        Scanner sc = new Scanner(System.in);
+        int posicion;
+        
+        do{
+            System.out.println("Ingrese la posicion del telefono que quiere eliminar");
+            posicion = sc.nextInt();
+            if(!validarPosicion(posicion)){
+                System.out.println("Posicion invalida, ingresela de nuevo");
+            }
+        }while(!validarPosicion(posicion));
+        
+        telefono[posicion - 1] = "";
     }
 }
 
