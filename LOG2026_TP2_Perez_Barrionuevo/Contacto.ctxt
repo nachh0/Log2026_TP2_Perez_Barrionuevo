@@ -1,5 +1,5 @@
 #BlueJ class context
-#Thu Nov 05 19:08:46 ART 2026
+#Thu Nov 05 19:49:11 ART 2026
 comment0.target=Contacto
 comment1.params=nombre localidad direccion telefono
 comment1.target=Contacto(java.lang.String, java.lang.String, java.lang.String, java.lang.String)
@@ -11,8 +11,8 @@ comment12.target=void agregarTelefono()
 comment13.params=caracteristica numero
 comment13.target=void agregarTelefono(java.lang.String, int)
 comment14.target=void listarTelefonos()
-comment15.target=boolean hayTelefonos()
-comment16.target=void eliminarTelefono()
+comment15.target=void eliminarTelefono()
+comment16.target=void modificarTelefono()
 comment2.target=java.lang.String getNombre()
 comment3.params=nombre
 comment3.target=void setNombre(java.lang.String)

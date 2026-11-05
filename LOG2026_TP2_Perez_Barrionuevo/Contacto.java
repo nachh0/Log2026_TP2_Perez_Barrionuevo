@@ -80,7 +80,7 @@ public class Contacto{
         //Verificar lugares vacios
         int pos=elementoVacio();
         if(pos==-1){
-            System.out.println("No existe mas lugar para agregar numeros telefonicos");
+            System.out.println("No existe más lugar para agregar números telefónicos");
             return;
         }
         //Validar caracteristica
@@ -94,7 +94,7 @@ public class Contacto{
             }
 
         }while(!validarCaracteristica(caracteristica));
-        //Validar telefono
+        //Validar numero
         int numero;
         do{
             System.out.println("Ingrese el numero");
@@ -110,7 +110,7 @@ public class Contacto{
     public void agregarTelefono(String caracteristica, int numero){
         int pos=elementoVacio();
         if(pos==-1){
-            System.out.println("No existe mas lugar para agregar numeros telefonicos");
+            System.out.println("No existe más lugar para agregar números telefónicos");
             return;
         }else{
             telefono[pos]=caracteristica + "-" + numero;
@@ -130,17 +130,15 @@ public class Contacto{
         }
     }
     
-    private boolean hayTelefonos(){
-        for(int i = 0; i < telefono.length; i++){
-            if(telefono[i] != null && !telefono[i].trim().isEmpty()){
-                return true;
-            }
-        }return false;
-    }
-    
     public void eliminarTelefono(){
-        if(!hayTelefonos()){
-            System.out.println("No existen numeros de telefonos en la lista");
+        boolean hayAlguno = false;              
+        for (int i = 0; i < telefono.length; i++) {
+            if (telefono[i] != null && !telefono[i].trim().isEmpty()) {
+                hayAlguno = true;               
+            }
+        }
+        if (!hayAlguno) {                      
+            System.out.println("No existen números de teléfonos en la lista");
             return;
         }
         
@@ -158,6 +156,54 @@ public class Contacto{
         }while(!validarPosicion(posicion));
         
         telefono[posicion - 1] = "";
+    }
+    
+    public void modificarTelefono(){
+        boolean hayAlguno = false;              
+        for (int i = 0; i < telefono.length; i++) {
+            if (telefono[i] != null && !telefono[i].trim().isEmpty()) {
+                hayAlguno = true;               
+            }
+        }
+        if (!hayAlguno) {                      
+            System.out.println("No existen números de teléfonos en la lista para modificar");
+            return;
+        }
+        
+        listarTelefonos();
+        
+        Scanner sc = new Scanner(System.in);
+        int posicion;
+        do{
+            System.out.println("Ingrese la posicion del telefono que quiere modificar");
+            posicion = sc.nextInt();
+            if(!validarPosicion(posicion)){
+                System.out.println("Posicion invalida, ingresela de nuevo");
+            }
+        }while(!validarPosicion(posicion));
+        
+        sc.nextLine();
+        
+        String caracteristica;
+        do{
+            System.out.println("Ingrese la caracteristica");
+            caracteristica=sc.nextLine().trim();
+            if(!validarCaracteristica(caracteristica)){
+                System.out.println("Caracteristica invalida, ingresela de nuevo");
+            }
+
+        }while(!validarCaracteristica(caracteristica));
+        
+        int numero;
+        do{
+            System.out.println("Ingrese el numero");
+            numero=sc.nextInt();
+            if(!validarNumero(numero)){
+                System.out.println("Numero invalido, ingreselo de nuevo");
+            }
+
+        }while(!validarNumero(numero));
+        telefono[posicion - 1]=caracteristica + "-" + numero;
     }
 }
 
