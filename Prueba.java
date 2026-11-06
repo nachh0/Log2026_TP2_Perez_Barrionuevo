@@ -1,4 +1,14 @@
+/**
+ * Clase de prueba del sistema de agenda. Crea contactos, notas y una agenda, y ejecuta sus métodos para verificar su funcionamiento.
+ * 
+ * @author Perez Ignacio
+ * @author Barrionuevo Francisco
+ * @version 1.0
+ */
 public class Prueba{
+    /**
+     * Método principal.
+     */
     public static void main(String[] args){
         Contacto c1 = new Contacto("Juan Perez", "Santa Fe", "25 de Mayo 1111", "0342-4567891");
         Contacto c2 = new Contacto("Ana Gomez", "Rosario", "Cordoba 500", "0341-4567892");

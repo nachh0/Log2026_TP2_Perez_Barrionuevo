@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Prueba
+comment0.text=\r\n\ Clase\ de\ prueba\ del\ sistema\ de\ agenda.\ Crea\ contactos,\ notas\ y\ una\ agenda,\ y\ ejecuta\ sus\ m\u00E9todos\ para\ verificar\ su\ funcionamiento.\r\n\ \r\n\ @author\ Perez\ Ignacio\r\n\ @author\ Barrionuevo\ Francisco\r\n\ @version\ 1.0\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment1.text=\r\n\ M\u00E9todo\ principal.\r\n
+numComments=2

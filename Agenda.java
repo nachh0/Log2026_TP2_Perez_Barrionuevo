@@ -1,16 +1,30 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+/**
+ * Representa una agenda formada por una lista de notas y un mapa de contactos.
+ * 
+ * @author Perez Ignacio
+ * @author Barrionuevo Francisco
+ * @version 1.0
+ */
 public class Agenda{
     private String nombre;
     private ArrayList<Nota> notas;
     private HashMap<String, Contacto> contactos;
-    
+    /**
+     * Constructor: Guarda el nombre y crea la lista de notas y el mapa de contactos, vacios.
+     * @param nombre el nombre de la agenda.
+     */
     public Agenda(String nombre){
         this.nombre = nombre;
         notas = new ArrayList<>();
         contactos = new HashMap<>();
     }
     
+    /**
+     * Registra un contacto en el mapa de contactos, usando su nombre como clave.
+     * @param contacto el contacto a agregar.
+     */
     public void agregarContacto(Contacto contacto){
         String clave = contacto.getNombre();
     
@@ -21,6 +35,10 @@ public class Agenda{
         }
     }
     
+    /**
+     * Agrega una nota a la lista de notas y registra su contacto en el mapa si aun no está.
+     * @param nota la nota a agregar.
+     */
     public void agregarNota(Nota nota){
         notas.add(nota);
         String clave = nota.getContacto().getNombre();
@@ -29,6 +47,9 @@ public class Agenda{
         }
     }
     
+    /**
+     * Muestra todos los contactos registrados en la agenda.
+     */
     public void listarContactos(){
         if(contactos.isEmpty()){
             System.out.println("La agenda no tiene contactos");
@@ -41,6 +62,11 @@ public class Agenda{
         }
     }
     
+    /**
+     * Privado. Indica si el contacto está asociado a al menos una nota de la agenda.
+     * @param contacto el contacto a buscar en las notas.
+     * @return true si al menos una nota tiene ese contacto, sino false.
+     */
     private boolean tieneNotas(Contacto contacto){
         for (Nota n : notas){
             if(n.getContacto() == contacto){
@@ -50,6 +76,9 @@ public class Agenda{
         return false;
     }
     
+    /**
+     * Muestra solo los contactos que tienen una nota asociada.
+     */
     public void listarContactosConNotas(){
         boolean hayAlguno = false;
         
@@ -66,6 +95,9 @@ public class Agenda{
         }
     }
     
+    /**
+     * Muestra solo los contactos que no tienen una nota asociada.
+     */
     public void listarContactosSinNotas(){
         boolean hayAlguno = false;
         
@@ -82,6 +114,10 @@ public class Agenda{
         }
     }
     
+    /**
+     * Quita del mapa el contacto indicado. Siempre que no tenga notas asociadas.
+     * @param nombre el nombre del contacto a eliminar.
+     */
     public void eliminarContacto(String nombre){
         String clave = nombre.toUpperCase();
         
@@ -99,6 +135,9 @@ public class Agenda{
         contactos.remove(clave);
     }
     
+    /**
+     * Muestra todas las notas de la agenda con el formato indicado mas abajo.
+     */
     public void listarNotas(){
         if(notas.isEmpty()){
             System.out.println("La agenda no tiene notas");

@@ -1,9 +1,3 @@
 # Archivos compilados
 *.class
 
-# Archivos de configuración de BlueJ
-*.ctxt
-*.pkh
-*.bluej
-package.bluej
-core
